@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 project(cloud-profiler-java)
+target_include_directories(profiler_java_agent PRIVATE .)
 add_library(
   profiler_java_agent SHARED
   src/cloud_env.cc
