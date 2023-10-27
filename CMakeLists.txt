@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 project(cloud-profiler-java)
-target_include_directories(profiler_java_agent PRIVATE .)
+find_package(JNI REQUIRED)
 add_library(
   profiler_java_agent SHARED
   src/cloud_env.cc
@@ -17,3 +17,4 @@ add_library(
   src/uploader.cc
   src/uploader_gcs.cc
   src/worker.cc)
+target_include_directories(profiler_java_agent PRIVATE . ${JNI_INCLUDE_DIRS})
