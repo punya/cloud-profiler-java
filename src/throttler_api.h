@@ -48,7 +48,7 @@ class APIThrottler : public Throttler {
                    google::devtools::cloudprofiler::v2::ProfileType>& types,
                const std::string& language, const std::string& language_version,
                CloudEnv* env, Clock* clock,
-               std::unique_ptr<google::devtools::cloudprofiler::v2::grpc::
+               std::unique_ptr<google::devtools::cloudprofiler::v2::
                                    ProfilerService::StubInterface>
                    stub);
 
@@ -79,7 +79,7 @@ class APIThrottler : public Throttler {
   CloudEnv* env_;
   Clock* clock_;
   std::unique_ptr<
-      google::devtools::cloudprofiler::v2::grpc::ProfilerService::StubInterface>
+      google::devtools::cloudprofiler::v2::ProfilerService::StubInterface>
       stub_;
   google::devtools::cloudprofiler::v2::Profile profile_;
 

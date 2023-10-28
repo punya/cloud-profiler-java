@@ -18,7 +18,7 @@
 #define CLOUD_PROFILER_AGENT_JAVA_PROTO_H_
 
 #include "src/profiler.h"
-#include "perftools/profiles/proto/builder.h"
+#include "third_party/perftools/profiles/proto/builder.h"
 
 namespace cloud {
 namespace profiler {
