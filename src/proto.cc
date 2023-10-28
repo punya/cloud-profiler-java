@@ -21,7 +21,7 @@
 #include <map>
 #include <string>
 
-#include "perftools/profiles/proto/builder.h"
+#include "third_party/perftools/profiles/proto/builder.h"
 #include "third_party/javaprofiler/display.h"
 #include "third_party/javaprofiler/stacktrace_fixer.h"
 

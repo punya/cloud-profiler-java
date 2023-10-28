@@ -19,7 +19,7 @@
 
 #include <unordered_map>
 
-#include "perftools/profiles/proto/builder.h"
+#include "third_party/perftools/profiles/proto/builder.h"
 #include "third_party/javaprofiler/globals.h"
 #include "third_party/javaprofiler/stacktrace_decls.h"
 

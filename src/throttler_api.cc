@@ -97,7 +97,7 @@ grpc_ssl_roots_override_result OverrideSSLRoots(char** pem_root_certs) {
 }
 
 // Creates the profiler gRPC API stub. Returns nullptr on error.
-std::unique_ptr<api::grpc::ProfilerService::StubInterface>
+std::unique_ptr<api::ProfilerService::StubInterface>
 NewProfilerServiceStub(const std::string& addr, const std::string& language) {
   std::shared_ptr<grpc::ChannelCredentials> creds;
   if (FLAGS_cprof_use_insecure_creds_for_testing) {
@@ -123,8 +123,8 @@ NewProfilerServiceStub(const std::string& addr, const std::string& language) {
     return nullptr;
   }
 
-  std::unique_ptr<api::grpc::ProfilerService::StubInterface> stub =
-      api::grpc::ProfilerService::NewStub(ch);
+  std::unique_ptr<api::ProfilerService::StubInterface> stub =
+      api::ProfilerService::NewStub(ch);
   if (stub == nullptr) {
     LOG(ERROR) << "Failed to initialize profiler service";
   }
@@ -259,7 +259,7 @@ APIThrottler::APIThrottler(
     const std::vector<google::devtools::cloudprofiler::v2::ProfileType>& types,
     const std::string& language, const std::string& language_version,
     CloudEnv* env, Clock* clock,
-    std::unique_ptr<google::devtools::cloudprofiler::v2::grpc::ProfilerService::
+    std::unique_ptr<google::devtools::cloudprofiler::v2::ProfilerService::
                         StubInterface>
         stub)
     : types_(types),

@@ -52,7 +52,7 @@ typedef std::unordered_map<std::tuple<int64, int64, int64, int64>, int64,
 }  // namespace profiles
 }  // namespace perftools
 
-#include "perftools/profiles/proto/profile.pb.h"
+#include "third_party/perftools/profiles/proto/profile.pb.h"
 
 namespace perftools {
 namespace profiles {

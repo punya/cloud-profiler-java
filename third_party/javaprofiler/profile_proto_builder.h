@@ -25,7 +25,7 @@
 #include <string>
 #include <unordered_map>
 
-#include "perftools/profiles/proto/builder.h"
+#include "third_party/perftools/profiles/proto/builder.h"
 #include "third_party/javaprofiler/method_info.h"
 #include "third_party/javaprofiler/stacktrace_decls.h"
 

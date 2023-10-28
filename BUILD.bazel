@@ -1,0 +1,57 @@
+cc_binary(
+    name = "cloud_profiler_java",
+    srcs = glob([
+        "src/*.cc",
+        "src/*.h",
+    ]),
+    defines = ["STANDALONE_BUILD"],
+    linkshared = True,
+    linkstatic = True,
+    deps = [
+        ":javaprofiler",
+        "//tools/jni:copy_jni_hdr_lib",
+        "@com_github_curl_curl//:curl",
+        "@com_github_google_glog//:glog",
+        "@com_github_grpc_grpc//:grpc++",
+        "@com_google_googleapis//google/devtools/cloudprofiler/v2:cloudprofiler_cc_grpc",
+        "@com_google_googleapis//google/rpc:error_details_cc_proto",
+    ],
+)
+
+cc_library(
+    name = "javaprofiler",
+    srcs = glob(
+        ["third_party/javaprofiler/*.cc"],
+        exclude = ["third_party/javaprofiler/profile_test_lib.cc"],
+    ),
+    hdrs = glob([
+        "third_party/javaprofiler/*.h",
+    ]),
+    defines = ["STANDALONE_BUILD"],
+    deps = [
+        ":profile_builder",
+        ":profile_cc_proto",
+        "//tools/jni:copy_jni_hdr_lib",
+        "@com_github_google_glog//:glog",
+    ],
+)
+
+cc_library(
+    name = "profile_builder",
+    srcs = ["third_party/perftools/profiles/proto/builder.cc"],
+    hdrs = ["third_party/perftools/profiles/proto/builder.h"],
+    deps = [
+        ":profile_cc_proto",
+        "@com_github_google_glog//:glog",
+    ],
+)
+
+proto_library(
+    name = "profile_proto",
+    srcs = ["third_party/perftools/profiles/proto/profile.proto"],
+)
+
+cc_proto_library(
+    name = "profile_cc_proto",
+    deps = [":profile_proto"],
+)
